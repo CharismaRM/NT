@@ -2,6 +2,7 @@ function email_test(input) {
 	return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
 }
 'use strict'
+
 // const isMobile = {
 // 	Android: function () {
 // 		return navigator.userAgent.match(/Android/i);
@@ -47,33 +48,33 @@ iconMenu.addEventListener("click", function(e) {
 
 //прокрутка при клике========================================================================================================================================================
 
-// const menuLinks = document.querySelectorAll('.menu__link[data-goto]');
-// if(menuLinks.length > 0){
-//   menuLinks.forEach(menuLink => {
-//     menuLink.addEventListener("click", onMenuLinkClick);
-//   });
+const menuLinks = document.querySelectorAll('.menu__link[data-goto]');
+if(menuLinks.length > 0){
+  menuLinks.forEach(menuLink => {
+    menuLink.addEventListener("click", onMenuLinkClick);
+  });
 
-//   function onMenuLinkClick(e){
-//     const menuLink = e.target;
-//     if (menuLink.dataset.goto && document.querySelector(menuLink.dataset.goto)) {
-//       const gotoBlock =  document.querySelector(menuLink.dataset.goto);
-//       const gotoBlockValue = gotoBlock.getBoundingClientRect().top + pageYOffset;
+  function onMenuLinkClick(e){
+    const menuLink = e.target;
+    if (menuLink.dataset.goto && document.querySelector(menuLink.dataset.goto)) {
+      const gotoBlock =  document.querySelector(menuLink.dataset.goto);
+      const gotoBlockValue = gotoBlock.getBoundingClientRect().top + pageYOffset;
 
-//       if(iconMenu.classList.contains("_active")){
-//         document.body.classList.remove('_lock')
-//   iconMenu.classList.remove('_active');
-//   menuBody.classList.remove('_active');
-//       }
+      if(iconMenu.classList.contains("_active")){
+        document.body.classList.remove('_lock')
+  iconMenu.classList.remove('_active');
+  menuBody.classList.remove('_active');
+      }
 
-//       window.scrollTo({
-//         top: gotoBlockValue,
-//         behavior: 'smooth'
-//       });
-//       e.preventDefault();
-//     }
+      window.scrollTo({
+        top: gotoBlockValue,
+        behavior: 'smooth'
+      });
+      e.preventDefault();
+    }
 
-//   }
-// }
+  }
+}
 var ua = window.navigator.userAgent;
 var msie = ua.indexOf("MSIE ");
 var isMobile = { Android: function () { return navigator.userAgent.match(/Android/i); }, BlackBerry: function () { return navigator.userAgent.match(/BlackBerry/i); }, iOS: function () { return navigator.userAgent.match(/iPhone|iPad|iPod/i); }, Opera: function () { return navigator.userAgent.match(/Opera Mini/i); }, Windows: function () { return navigator.userAgent.match(/IEMobile/i); }, any: function () { return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows()); } };
@@ -138,24 +139,24 @@ if (location.hash) {
 }
 //=================
 //Menu
-let iconMenu = document.querySelector(".icon-menu");
-if (iconMenu != null) {
-	let delay = 500;
-	let menuBody = document.querySelector(".menu__body");
-	iconMenu.addEventListener("click", function (e) {
-		if (unlock) {
-			body_lock(delay);
-			iconMenu.classList.toggle("_active");
-			menuBody.classList.toggle("_active");
-		}
-	});
-};
-function menu_close() {
-	let iconMenu = document.querySelector(".icon-menu");
-	let menuBody = document.querySelector(".menu__body");
-	iconMenu.classList.remove("_active");
-	menuBody.classList.remove("_active");
-}
+// let iconMenu = document.querySelector(".header__btn");
+// if (iconMenu != null) {
+// 	let delay = 500;
+// 	let menuBody = document.querySelector(".menu__body");
+// 	iconMenu.addEventListener("click", function (e) {
+// 		if (unlock) {
+// 			body_lock(delay);
+// 			iconMenu.classList.toggle("_active");
+// 			menuBody.classList.toggle("_active");
+// 		}
+// 	});
+// };
+// function menu_close() {
+// 	let iconMenu = document.querySelector(".header__btn");
+// 	let menuBody = document.querySelector(".menu__body");
+// 	iconMenu.classList.remove("_active");
+// 	menuBody.classList.remove("_active");
+// }
 //=================
 //BodyLock
 function body_lock(delay) {
